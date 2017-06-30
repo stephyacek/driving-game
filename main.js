@@ -5,7 +5,7 @@ const right = 'right'
 document.addEventListener('DOMContentLoaded', function () {
   renderButton($beginButton)
   clickToBegin()
-  //add keydown eventListener for move
+  keyPressEvent(event)
 })
 
 function createElement(tagName, attributes, content) {
@@ -24,7 +24,6 @@ function renderButton(button) {
 }
 
 const $myCar = createElement('div', {class:'car'}, ':D')
-const car = new Car($myCar, 'right', '1', [0, 0])
 
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
@@ -34,13 +33,17 @@ function clickToBegin() {
 }
 
 function keyPressEvent(event) {
-  //get key pressed here
-  switch(keypress) {
-    case right:
-    car.turn(right)
-  }
-
+  document.addEventListener('keydown', function () {
+    let key = event.keyCode
+    if (key = 39) {
+      setInterval(()=> {
+        car.move(right)
+      }, 2000)
+    }
+    else (alert('Hit arrow right to begin'))
+  })
 }
+
 class Car {
   constructor(raceCar, direction, speed, location) {
     this.raceCar = raceCar
@@ -71,3 +74,5 @@ class Car {
     this.raceCar.style.cssText = 'transform: translateX('+ this.location[0] +'rem)'
   }
 }
+
+const car = new Car($myCar, 'right', '1', [0, 0])
