@@ -2,6 +2,7 @@
 
 const $buttonSection = document.getElementById('button-section')
 const $gameBoard = document.getElementById('game-board')
+let stopCar = false
 const right = 'right'
 
 
@@ -22,8 +23,8 @@ function createElement(tagName, attributes, content) {
 const $beginButton = createElement('button', {type:'button', class:'begin-button'}, 'Begin Game')
 
 const $myCar = createElement('div', {class:'car'}, ':D')
-const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start Car')
-const $stopButton = createElement('button', {type:'button', class: 'stop-button'}, 'Stop Car')
+const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start')
+const $stopButton = createElement('button', {type:'button', class: 'stop-button'}, 'Stop')
 
 function renderButton(button) {
   return $buttonSection.appendChild(button)
@@ -51,11 +52,6 @@ function clickToBegin() {
 
 function clickToStartCar(event) {
   $startButton.addEventListener('click', moveByIntervals)
-}
-
-function clickToStopCar(event) {
-  $stopButton.addEventListener('click', stopMoveByIntervals)
-
 }
 
 class Car {
@@ -91,15 +87,23 @@ class Car {
 
 const car = new Car($myCar, 'right', 0.5, [0, 0])
 
+let intervalId = 0
+
 function moveByIntervals() {
-  const intervalId = setInterval(()=> {
-    if (car.location[0] < 68 ) {
-      car.move()
+  intervalId = setInterval(()=> {
+    if (car.location[0] > 67 || stopCar) {
+      stopMoveByIntervals()
     }
-    else clearInterval(intervalId)
+    else (car.move())
   }, 100)
 }
 
+function clickToStopCar(event) {
+  $stopButton.addEventListener('click', stopMoveByIntervals)
+
+}
+
 function stopMoveByIntervals() {
+  stopCar = true
   clearInterval(intervalId)
 }
