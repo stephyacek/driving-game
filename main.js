@@ -21,7 +21,7 @@ function renderButton(button) {
   return $gameBoard.appendChild(button)
 }
 
-const $myCar = createElement('div', {class:'car'}, 'car')
+const $myCar = createElement('div', {class:'car'}, ':D')
 
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
