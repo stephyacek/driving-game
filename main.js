@@ -3,6 +3,9 @@
 const $buttonSection = document.getElementById('button-section')
 const $gameBoard = document.getElementById('game-board')
 let stopCar = false
+const up = 'up'
+const down = 'down'
+const left = 'left'
 const right = 'right'
 
 
@@ -81,6 +84,9 @@ class Car {
       case right:
         this.location[0] += this.speed
     }
+    this.raceCar.style.cssText = 'transform: translateY('+ this.location[1] -'rem)'
+    this.raceCar.style.cssText = 'transform: translateY('+ this.location[1] +'rem)'
+    this.raceCar.style.cssText = 'transform: translateX('+ this.location[0] -'rem)'
     this.raceCar.style.cssText = 'transform: translateX('+ this.location[0] +'rem)'
   }
 }
