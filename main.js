@@ -30,11 +30,11 @@ function renderButton(button) {
 }
 
 function renderStartButton() {
-    clickTostartCar(event)
+    clickToStartCar(event)
+    clickToStopCar(event)
   return $buttonSection.appendChild($startButton)
 
 }
-
 
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
@@ -45,8 +45,13 @@ function clickToBegin() {
   })
 }
 
-function clickTostartCar(event) {
+function clickToStartCar(event) {
   $startButton.addEventListener('click', moveByIntervals)
+}
+
+function clickToStopCar(event) {
+  $stopButton.addEventListener('click', stopMoveByIntervals)
+
 }
 
 class Car {
@@ -91,3 +96,6 @@ function moveByIntervals() {
   }, 100)
 }
 
+function stopMoveByIntervals() {
+  clearInterval(intervalId)
+}
