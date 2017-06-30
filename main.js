@@ -68,5 +68,6 @@ class Car {
       case right:
         this.location[0] += this.speed
     }
+    this.raceCar.style.cssText = 'transform: translateX('+ this.location[0] +'rem)'
   }
 }
