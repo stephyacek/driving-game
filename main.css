@@ -12,13 +12,11 @@ header h1 {
 }
 
 .begin-button {
-
   background-color: #e2effb;
   font-weight: lighter;
   width: 13rem;
   font-size: 2rem;
   margin: 3rem 36rem;
-
   border-radius: 0.5rem;
 }
 
@@ -42,13 +40,27 @@ header h1 {
   padding: 1rem;
 }
 
-.start-button {
-  font-size: 1rem;
-  background-color: #e2effb;
-  font-weight: lighter;
-  width: 10rem;
-  padding: 1rem;
-  margin: 3rem 17rem;
-  border-radius: 0.5rem;
+#button-section {
+  display: flex;
+  text-align: center;
 }
 
+.start-button,
+.stop-button {
+  font-size: 1rem;
+  background-color: #e2effb;
+  font-weight: bold;
+  padding: 1rem 5rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+
+.start-button {
+  margin: 3rem 17rem;
+  color: #228b22;
+}
+
+.stop-button {
+  margin: 3rem 17rem;
+  color: #ff4d4d;
+}
