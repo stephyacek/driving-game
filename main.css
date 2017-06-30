@@ -35,7 +35,7 @@ header h1 {
 #game-board {
   background: #eee;
   width: 70rem;
-  height: 50rem;
+  height: 30rem;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -63,4 +63,8 @@ header h1 {
 .stop-button {
   margin: 3rem 17rem;
   color: #ff4d4d;
+}
+
+footer {
+  margin: 5rem;
 }

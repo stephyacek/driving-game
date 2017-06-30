@@ -24,7 +24,6 @@ function createElement(tagName, attributes, content) {
 }
 
 const $beginButton = createElement('button', {type:'button', class:'begin-button'}, 'Begin Game')
-
 const $myCar = createElement('div', {class:'car'}, ':D')
 const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start')
 const $stopButton = createElement('button', {type:'button', class: 'stop-button'}, 'Stop')
@@ -37,7 +36,6 @@ function renderStartButton() {
     clickToStartCar(event)
     clickToStopCar(event)
   return $buttonSection.appendChild($startButton)
-
 }
 
 function renderStopButton() {
@@ -107,7 +105,6 @@ function moveByIntervals() {
 
 function clickToStopCar(event) {
   $stopButton.addEventListener('click', stopMoveByIntervals)
-
 }
 
 function stopMoveByIntervals() {
