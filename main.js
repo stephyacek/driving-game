@@ -41,7 +41,7 @@ function clickToBegin() {
 }
 
 function clickTostartCar(event) {
-  $startButton.addEventListener('click', moveByIntervals())
+  $startButton.addEventListener('click', moveByIntervals)
 }
 
 class Car {
@@ -75,7 +75,7 @@ class Car {
   }
 }
 
-const car = new Car($myCar, 'right', 1, [0, 0])
+const car = new Car($myCar, 'right', 0.5, [0, 0])
 
 function moveByIntervals() {
   const intervalId = setInterval(()=> {
@@ -83,5 +83,5 @@ function moveByIntervals() {
       car.move()
     }
     else clearInterval(intervalId)
-  }, 500)
+  }, 100)
 }
