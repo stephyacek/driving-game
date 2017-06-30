@@ -23,7 +23,7 @@ const $beginButton = createElement('button', {type:'button', class:'begin-button
 
 const $myCar = createElement('div', {class:'car'}, ':D')
 const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start Car')
-
+const $stopButton = createElement('button', {type:'button', class: 'stop-button'}, 'Stop Car')
 
 function renderButton(button) {
   return $buttonSection.appendChild(button)
@@ -36,11 +36,15 @@ function renderStartButton() {
 
 }
 
+function renderStopButton() {
+  return $buttonSection.appendChild($stopButton)
+}
+
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
     $beginButton.classList.add('hidden')
-
     renderStartButton()
+    renderStopButton()
     $gameBoard.appendChild($myCar)
   })
 }

@@ -12,13 +12,11 @@ header h1 {
 }
 
 .begin-button {
-
   background-color: #e2effb;
   font-weight: lighter;
   width: 13rem;
   font-size: 2rem;
   margin: 3rem 36rem;
-
   border-radius: 0.5rem;
 }
 
@@ -42,13 +40,25 @@ header h1 {
   padding: 1rem;
 }
 
-.start-button {
+#button-section {
+  
+}
+
+.start-button,
+.stop-button {
   font-size: 1rem;
   background-color: #e2effb;
   font-weight: lighter;
   width: 10rem;
   padding: 1rem;
-  margin: 3rem 17rem;
   border-radius: 0.5rem;
+  display: flex;
 }
 
+.start-button {
+  margin: 3rem 17rem;
+}
+
+.stop-button {
+  margin: 3rem 17rem;
+}
