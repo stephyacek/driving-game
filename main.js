@@ -9,9 +9,17 @@ const left = 'left'
 const right = 'right'
 
 
+// Trying to not make whole page move with key down functions
+// document.addEventListener("keydown", function pageMove (wholeDoc) {
+//     if([37, 38, 39, 40].indexOf(wholeDoc.keyCode) > -1) {
+//         wholeDoc.preventDefault()
+//     }
+// }, false)
+
 document.addEventListener('DOMContentLoaded', function () {
   renderButton($beginButton)
   clickToBegin()
+
 })
 
 function createElement(tagName, attributes, content) {
@@ -27,6 +35,7 @@ const $beginButton = createElement('button', {type:'button', class:'begin-button
 const $myCar = createElement('div', {class:'car'}, ':D')
 const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start')
 const $stopButton = createElement('button', {type:'button', class: 'stop-button'}, 'Stop')
+const $restartButton = createElement('button', {type: 'button', class:'restart-button'}, 'Restart')
 
 function renderButton(button) {
   return $buttonSection.appendChild(button)
@@ -42,17 +51,26 @@ function renderStopButton() {
   return $buttonSection.appendChild($stopButton)
 }
 
+function renderRestartButton() {
+  return $buttonSection.appendChild($restartButton)
+}
+
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
     $beginButton.classList.add('hidden')
     renderStartButton()
     renderStopButton()
+    renderRestartButton()
     $gameBoard.appendChild($myCar)
   })
 }
 
 function clickToStartCar(event) {
   $startButton.addEventListener('click', moveByIntervals)
+}
+
+function keydownArrows(event) {
+  $gameBoard.addEventListener('keydown', maneuverWithArrows($myCar))
 }
 
 class Car {
@@ -68,15 +86,18 @@ class Car {
   accelerate(speed) {
     this.speed += speed
   }
+  reset() {
+    this.location = [0, 0]
+  }
   move() {
     switch (this.direction) {
-      case 'up':
+      case up:
         this.location[1] -= this.speed
         break
-      case 'down':
+      case down:
         this.location[1] += this.speed
         break
-      case 'left':
+      case left:
         this.location[0] -= this.speed
         break
       case right:
@@ -111,3 +132,30 @@ function stopMoveByIntervals() {
   stopCar = true
   clearInterval(intervalId)
 }
+
+function clickToRestart(event) {
+  $restartButton.addEventListener('click', () => {
+    return car.restart()
+  })
+}
+
+function maneuverWithArrows($myCar) {
+  let arrow = event.key
+    switch ($myCar.direction) {
+      case arrow = 38:
+        $myCar.direction = 'up'
+        break
+      case arrow = 40:
+        $myCar.direction = 'down'
+        break
+      case arrow = 37:
+        $myCar.direction = 'left'
+        break
+      case arrow = 39:
+        $myCar.direction = 'right'
+    }
+  return move($myCar.direction)
+}
+
+
+//29rem limit y axis

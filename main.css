@@ -6,9 +6,11 @@ body {
 
 header h1 {
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: #eef6fd;
   margin: 0;
   padding: 2rem;
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 3rem;
 }
 
 .begin-button {
@@ -43,25 +45,26 @@ header h1 {
 #button-section {
   display: flex;
   text-align: center;
+  margin: 0 auto;
 }
 
 .start-button,
-.stop-button {
+.stop-button,
+.restart-button {
   font-size: 1rem;
   background-color: #e2effb;
   font-weight: bold;
   padding: 1rem 5rem;
   border-radius: 0.5rem;
   display: flex;
+  margin: 3rem 0 3rem 12rem;
 }
 
 .start-button {
-  margin: 3rem 17rem;
   color: #228b22;
 }
 
 .stop-button {
-  margin: 3rem 17rem;
   color: #ff4d4d;
 }
 
