@@ -90,6 +90,7 @@ const car = new Car($myCar, 'right', 0.5, [0, 0])
 let intervalId = 0
 
 function moveByIntervals() {
+  stopCar = false
   intervalId = setInterval(()=> {
     if (car.location[0] > 67 || stopCar) {
       stopMoveByIntervals()
