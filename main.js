@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
+const $buttonSection = document.getElementById('button-section')
 const $gameBoard = document.getElementById('game-board')
 const right = 'right'
 
 document.addEventListener('DOMContentLoaded', function () {
   renderButton($beginButton)
   clickToBegin()
-  keyPressEvent(event)
 })
 
 function createElement(tagName, attributes, content) {
@@ -18,30 +18,30 @@ function createElement(tagName, attributes, content) {
 }
 
 const $beginButton = createElement('button', {type:'button', class:'begin-button'}, 'Begin Game')
+const $myCar = createElement('div', {class:'car'}, ':D')
+const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start Car')
+
 
 function renderButton(button) {
-  return $gameBoard.appendChild(button)
+  return $buttonSection.appendChild(button)
 }
 
-const $myCar = createElement('div', {class:'car'}, ':D')
+function renderStartButton() {
+    clickTostartCar(event)
+  return $buttonSection.appendChild($startButton)
+
+}
 
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
     $beginButton.classList.add('hidden')
+    renderStartButton()
     $gameBoard.appendChild($myCar)
   })
 }
 
-function keyPressEvent(event) {
-  document.addEventListener('keydown', function () {
-    let key = event.keyCode
-    if (key = 39) {
-      setInterval(()=> {
-        car.move(right)
-      }, 2000)
-    }
-    else (alert('Hit arrow right to begin'))
-  })
+function clickTostartCar(event) {
+  $startButton.addEventListener('click', moveByIntervals())
 }
 
 class Car {
@@ -75,4 +75,13 @@ class Car {
   }
 }
 
-const car = new Car($myCar, 'right', '1', [0, 0])
+const car = new Car($myCar, 'right', 1, [0, 0])
+
+function moveByIntervals() {
+  const intervalId = setInterval(()=> {
+    if (car.location[0] < 68 ) {
+      car.move()
+    }
+    else clearInterval(intervalId)
+  }, 500)
+}
