@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
+
 const $buttonSection = document.getElementById('button-section')
 const $gameBoard = document.getElementById('game-board')
 const right = 'right'
+
 
 document.addEventListener('DOMContentLoaded', function () {
   renderButton($beginButton)
@@ -18,6 +20,7 @@ function createElement(tagName, attributes, content) {
 }
 
 const $beginButton = createElement('button', {type:'button', class:'begin-button'}, 'Begin Game')
+
 const $myCar = createElement('div', {class:'car'}, ':D')
 const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start Car')
 
@@ -32,9 +35,11 @@ function renderStartButton() {
 
 }
 
+
 function clickToBegin() {
   $beginButton.addEventListener('click', function() {
     $beginButton.classList.add('hidden')
+
     renderStartButton()
     $gameBoard.appendChild($myCar)
   })
@@ -85,3 +90,4 @@ function moveByIntervals() {
     else clearInterval(intervalId)
   }, 100)
 }
+
