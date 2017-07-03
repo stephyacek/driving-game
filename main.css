@@ -27,11 +27,7 @@ header h1 {
 }
 
 .car {
-  background-color: #000;
-  width: 3rem;
-  border-radius: 1rem;
-  color: #fff;
-  text-align: right;
+  width: 4rem;
 }
 
 #game-board {

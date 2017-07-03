@@ -24,7 +24,7 @@ function createElement(tagName, attributes, content) {
 }
 
 const $beginButton = createElement('button', {type:'button', class:'begin-button'}, 'Begin Game')
-const $myCar = createElement('div', {class:'car'}, ':D')
+const $myCar = createElement('img', { src: 'images/car.png', class:'car'}, '')
 const $startButton = createElement('button', {type:'button', class: 'start-button'}, 'Start')
 const $stopButton = createElement('button', {type:'button', class: 'stop-button'}, 'Stop')
 
