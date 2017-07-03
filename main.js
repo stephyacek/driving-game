@@ -44,6 +44,7 @@ function renderButton(button) {
 function renderStartButton() {
     clickToStartCar(event)
     clickToStopCar(event)
+    keydownArrows()
   return $buttonSection.appendChild($startButton)
 }
 
@@ -69,8 +70,10 @@ function clickToStartCar(event) {
   $startButton.addEventListener('click', moveByIntervals)
 }
 
-function keydownArrows(event) {
-  $gameBoard.addEventListener('keydown', maneuverWithArrows($myCar))
+function keydownArrows() {
+  document.body.addEventListener('keydown', (event) => {
+    maneuverWithArrows(event)
+  })
 }
 
 class Car {
@@ -103,10 +106,7 @@ class Car {
       case right:
         this.location[0] += this.speed
     }
-    this.raceCar.style.cssText = 'transform: translateY('+ this.location[1] -'rem)'
-    this.raceCar.style.cssText = 'transform: translateY('+ this.location[1] +'rem)'
-    this.raceCar.style.cssText = 'transform: translateX('+ this.location[0] -'rem)'
-    this.raceCar.style.cssText = 'transform: translateX('+ this.location[0] +'rem)'
+    this.raceCar.style.cssText = 'transform: translate('+ this.location[0] +'rem,' + this.location[1] +'rem)'
   }
 }
 
@@ -139,22 +139,25 @@ function clickToRestart(event) {
   })
 }
 
-function maneuverWithArrows($myCar) {
-  let arrow = event.key
-    switch ($myCar.direction) {
-      case arrow = 38:
-        $myCar.direction = 'up'
+function maneuverWithArrows(event) {
+  event.preventDefault()
+  const arrow = event.key
+
+    switch (arrow) {
+      case 'ArrowUp':
+        car.turn('up')
         break
-      case arrow = 40:
-        $myCar.direction = 'down'
+      case 'ArrowDown':
+        car.turn('down')
         break
-      case arrow = 37:
-        $myCar.direction = 'left'
+      case 'ArrowLeft':
+        car.turn('left')
         break
-      case arrow = 39:
-        $myCar.direction = 'right'
+      case 'ArrowRight':
+        car.turn('right')
+        break
     }
-  return move($myCar.direction)
+
 }
 
 
