@@ -49,15 +49,14 @@ header h1 {
 }
 
 .start-button,
-.stop-button,
-.restart-button {
+.stop-button {
   font-size: 1rem;
   background-color: #e2effb;
   font-weight: bold;
   padding: 1rem 5rem;
   border-radius: 0.5rem;
   display: flex;
-  margin: 3rem 0 3rem 12rem;
+  margin: 3rem 0 3rem 18rem;
 }
 
 .start-button {
